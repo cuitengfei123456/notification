@@ -9,6 +9,10 @@
 # apns.gateway_server.send_notification(token_hex, payload)
 # print("发送成功")
 
+
+
+
+
 # from APNSWrapper.notifications import APNSNotificationWrapper, APNSNotification
 #
 # wrapper = APNSNotificationWrapper('ck.pem',True)
@@ -28,11 +32,14 @@
 # apns.gateway_server.send_notification(token_hex, payload)
 # print("发送完成")
 
-import os
 
+
+"""
+使用github上面的apns 实现发推送消息的代码
+"""
+import os
 import random
 from apns import APNs, Frame, Payload
-# #
 BASERDIR = os.path.abspath(os.path.dirname(__file__))
 apn_dev_cert_path = os.path.join(BASERDIR, 'dev-cert.pem')
 apn_dev_key_path = os.path.join(BASERDIR, 'dev-key-noec.pem')
@@ -44,6 +51,9 @@ identifier = random.getrandbits(32)
 apns.gateway_server.send_notification(token_hex, payload)
 print("发送完成")
 #
+
+
+
 # from pushjack import APNSClient
 #
 # client = APNSClient(certificate=apn_dev_cert_path,
@@ -71,6 +81,11 @@ print("发送完成")
 #     code, errmsg = reason
 #     print(token,errmsg)
 # #
+
+
+"""
+使用http2连接一直连接不上apns服务器
+"""
 from hyper import HTTPConnection, tls
 import json
 token = 'ac16e5344c0de2a626e2d3789a18c054e380060fb3165779a173a1d4bd8f905b'
@@ -92,17 +107,4 @@ resp = conn.get_response()
 d = resp.status
 print(d)
 
-# from applepush import ApplePush
-#
-# pa = {
-#     'aps': {
-#         'alert': 'test push',
-#         'sound': 'default',
-#         'badge': 1
-#
-#     }
-# }
-# apns = ApplePush('dev-cert.pem', 'com.csdigit.movesx')
-# print(apns.single_push('ac16e5344c0de2a626e2d3789a18c054e380060fb3165779a173a1d4bd8f905b', pa))
-#
-#
+

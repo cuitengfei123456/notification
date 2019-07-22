@@ -1,3 +1,6 @@
+"""
+这个是在github上面直接拉下来的代码，可以实现连接，但是是基于http1的，不稳定，经常断开
+"""
 # PyAPNs was developed by Simon Whitaker <simon@goosoftware.co.uk>
 # Source available at https://github.com/simonwhitaker/PyAPNs
 #
